@@ -3,6 +3,14 @@
 :root {
     --background: #ffffff;
     --foreground: #171717;
+    --primary: #7D3C98;
+    --secondary: #A569BD;
+    --accent: #D2B4DE;
+    --link: #6C3483;
+    --border: #E5E5E5;
+    --shadow: rgba(0, 0, 0, 0.1);
+    --card-bg: #F4ECF7;
+    --hover: #8E44AD;
 }
 
 body {
