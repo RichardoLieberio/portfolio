@@ -10,13 +10,13 @@ type menuType = {
 }
 
 const menu: menuType[] = [
-    { href: '#home', page: 'Home', ariaLabel: 'Home section' },
-    { href: '#work', page: 'Work', ariaLabel: 'Work section' },
-    { href: '#experience', page: 'Experience', ariaLabel: 'Experience section' },
-    { href: '#services', page: 'Services', ariaLabel: 'Services section' },
-    { href: '#about', page: 'About', ariaLabel: 'About section' },
-    { href: '#stats', page: 'Stats', ariaLabel: 'Statistics section' },
-    { href: '#contact', page: 'Contact', ariaLabel: 'Contact section' },
+    { href: '#home', page: 'Home', ariaLabel: 'Navigate to home section' },
+    { href: '#work', page: 'Work', ariaLabel: 'Navigate to work section' },
+    { href: '#experience', page: 'Experience', ariaLabel: 'Navigate to experience section' },
+    { href: '#services', page: 'Services', ariaLabel: 'Navigate to services section' },
+    { href: '#about', page: 'About', ariaLabel: 'Navigate to about section' },
+    { href: '#stats', page: 'Stats', ariaLabel: 'Navigate to statistics section' },
+    { href: '#contact', page: 'Contact', ariaLabel: 'Navigate to contact section' },
 ];
 
 export default function Menu(): JSX.Element {
