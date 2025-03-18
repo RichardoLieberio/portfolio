@@ -37,7 +37,7 @@ export default function Menu(): JSX.Element {
 
     return (
         <nav className="w-fit h-fit mx-auto sticky bottom-4 sm:bottom-6" aria-label="Main Navigation">
-            <ul className="w-fit h-fit flex gap-2" role="list">
+            <ul className="w-fit h-fit flex gap-1" role="list">
                 { menu.map(({ href, page, ariaLabel }: menuType) => (
                     <li key={ `Page-${page}` } className="w-4 h-4" role="listitem">
                         <DotsMenu href={ href } page={ page } ariaLabel={ ariaLabel } active={ activeSection === href.substring(1) } />
