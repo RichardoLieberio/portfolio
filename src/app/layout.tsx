@@ -10,30 +10,14 @@ const poppins: NextFont = Poppins({
 });
 
 type AppLayoutProps = {
-    menu: ReactNode;
-    home: ReactNode;
-    work: ReactNode;
-    experience: ReactNode;
-    services: ReactNode;
-    about: ReactNode;
-    stats: ReactNode;
-    contact: ReactNode;
+    hero: ReactNode;
 };
 
-export default function AppLayout({ menu, home, work, experience, services, about, stats, contact }: AppLayoutProps): JSX.Element {
+export default function AppLayout({ hero }: AppLayoutProps): JSX.Element {
     return (
-        <html lang="en" className="scroll-smooth">
-            <body className={`${poppins.className} w-full min-w-80 text-sm sm:text-base tracking-tight`}>
-                <main className="max-w-7xl mx-auto px-4 sm:px-6 ">
-                    { home }
-                    { work }
-                    { experience }
-                    { services }
-                    { about }
-                    { stats }
-                    { contact }
-                </main>
-                { menu }
+        <html lang="en">
+            <body className={`${poppins.className} w-full min-w-80 relative text-sm sm:text-base tracking-tight`}>
+                { hero }
             </body>
         </html>
     );
