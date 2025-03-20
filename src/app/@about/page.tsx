@@ -4,8 +4,8 @@ import Paragraph from './_components/Paragraph';
 
 export default function About(): JSX.Element {
     return (
-        <section className="max-w-7xl mx-auto py-16 md:py-24" aria-labelledby="about-me-title">
-            <Title id="about-me-title" text="About me" />
+        <section className="max-w-7xl mx-auto" aria-labelledby="about-me-title">
+            <Title id="about-me-title" text="About Me" />
             <article className="mt-12 md:mt-16">
                 <section aria-labelledby="who-i-am">
                     <h3 id="who-i-am" className="text-lg md:text-xl font-semibold">Who I Am</h3>
