@@ -16,7 +16,7 @@ type AppLayoutProps = {
 export default function AppLayout({ hero }: AppLayoutProps): JSX.Element {
     return (
         <html lang="en">
-            <body className={`${poppins.className} w-full min-w-80 relative text-sm sm:text-base tracking-tight`}>
+            <body className={`${poppins.className} w-full min-w-80 relative text-sm md:text-base tracking-tight`}>
                 { hero }
             </body>
         </html>
