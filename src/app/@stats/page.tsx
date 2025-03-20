@@ -3,7 +3,7 @@ import Statistic from './_components/Statistic';
 
 export default function Stats(): JSX.Element {
     return (
-        <section className="px-6 md:px-8" aria-labelledby="stats-title">
+        <section className="px-6 md:px-8 bg-white" aria-labelledby="stats-title">
             <h2 id="stats-title" className="sr-only">My Statistics</h2>
             <ul className="max-w-7xl mx-auto py-10 lg:py-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-y-10" role="list">
                 <Statistic number={ 1000 } duration={ 4 } ease={[ 0.1, 1, 0.2, 1 ]} label="Hours of work" />
