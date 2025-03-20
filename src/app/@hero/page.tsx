@@ -14,7 +14,7 @@ export default function Hero(): JSX.Element {
                         <Typed strings={[ 'Full Stack Developer', 'Backend Developer', 'Frontend Developer' ]} />
                         <p className="mt-4">Empowering users with high quality, responsive, and performance driven web experiences, built to meet real world needs</p>
                         <div className="mt-10">
-                            <Link href="#" className="px-8 py-2 text-[var(--primary)] border border-[var(--primary)] rounded-full transition hover:bg-[var(--primary)] hover:text-[var(--background)] focus:bg-[var(--primary)] focus:text-[var(--background)] focus:outline-2 focus:outline-[var(--primary)] focus:outline-offset-2">Let&apos;s connect</Link>
+                            <Link href="#" className="px-8 py-2 text-[var(--primary)] border border-[var(--primary)] rounded-full transition hover:bg-[var(--primary)] hover:text-[var(--background)] focus-visible:bg-[var(--primary)] focus-visible:text-[var(--background)] focus-visible:outline-2 focus-visible:outline-[var(--primary)] focus-visible:outline-offset-2">Let&apos;s connect</Link>
                         </div>
                     </div>
                     <div className="max-w-72 md:max-w-96">
