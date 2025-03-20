@@ -11,13 +11,15 @@ const poppins: NextFont = Poppins({
 
 type AppLayoutProps = {
     hero: ReactNode;
+    stats: ReactNode;
 };
 
-export default function AppLayout({ hero }: AppLayoutProps): JSX.Element {
+export default function AppLayout({ hero, stats }: AppLayoutProps): JSX.Element {
     return (
         <html lang="en">
             <body className={`${poppins.className} w-full min-w-80 relative text-sm md:text-base tracking-tight`}>
                 { hero }
+                { stats }
             </body>
         </html>
     );
