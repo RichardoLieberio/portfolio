@@ -11,7 +11,7 @@ export default function Hero(): JSX.Element {
                     <div className="flex-2/3 text-center lg:text-start">
                         <p className="text-[var(--primary)] font-semibold">Creating seamless web experience</p>
                         <h1 className="mt-4 text-4xl md:text-5xl font-semibold" id="hero-title">Richardo Lieberio</h1>
-                        <Typed strings={[ 'Full Stack Developer', 'Backend Developer', 'Frontend Developer' ]} />
+                        <Typed text="Full Stack Developer" />
                         <p className="mt-4">Empowering users with high quality, responsive, and performance driven web experiences, built to meet real world needs</p>
                         <div className="mt-10">
                             <Link href="#" className="px-8 py-2 text-[var(--primary)] border border-[var(--primary)] rounded-full transition hover:bg-[var(--primary)] hover:text-[var(--background)] focus-visible:bg-[var(--primary)] focus-visible:text-[var(--background)] focus-visible:outline-2 focus-visible:outline-[var(--primary)] focus-visible:outline-offset-2">Let&apos;s connect</Link>

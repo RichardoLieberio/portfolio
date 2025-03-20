@@ -1,10 +1,21 @@
 'use client';
 
-import { JSX } from 'react';
+import { useState, useRef, useEffect, JSX, Dispatch, SetStateAction, RefObject } from 'react';
+import { useInView } from 'framer-motion';
 import { ReactTyped } from 'react-typed';
 
-export default function Typed({ strings }: { strings: string[] }): JSX.Element {
+export default function Typed({ text }: { text: string }): JSX.Element {
+    const [ key, setKey ]: [ number, Dispatch<SetStateAction<number>> ] = useState(0);
+    const ref: RefObject<HTMLSpanElement | null> = useRef<HTMLSpanElement>(null);
+    const inView: boolean = useInView(ref, { once: false, margin: '0px 0px -50px 0px' });
+
+    useEffect(() => {
+        if (inView) setKey((prev) => prev + 1);
+    }, [ inView ]);
+
     return (
-        <ReactTyped strings={ strings } typeSpeed={ 40 } backSpeed={ 30 } loop startWhenVisible className="mt-1 text-4xl md:text-5xl text-[var(--primary)] font-semibold" />
+        <span ref={ ref }>
+            <ReactTyped key={ key } strings={[ text ]} typeSpeed={ 40 } backSpeed={ 30 } startWhenVisible className="mt-1 text-4xl md:text-5xl text-[var(--primary)] font-semibold" />
+        </span>
     );
 }
