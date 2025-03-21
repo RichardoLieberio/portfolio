@@ -15,7 +15,7 @@ export default function Typed({ text }: { text: string }): JSX.Element {
 
     return (
         <span ref={ ref }>
-            <ReactTyped key={ key } strings={[ text ]} typeSpeed={ 40 } backSpeed={ 30 } startWhenVisible className="mt-1 text-4xl md:text-5xl text-[var(--primary)] font-semibold" />
+            <ReactTyped key={ key } strings={[ text ]} typeSpeed={ 60 } startWhenVisible className="mt-1 text-4xl md:text-5xl text-[var(--primary)] font-semibold" />
         </span>
     );
 }
