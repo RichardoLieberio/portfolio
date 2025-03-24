@@ -14,9 +14,10 @@ type AppLayoutProps = {
     stats: ReactNode;
     about: ReactNode;
     services: ReactNode;
+    works: ReactNode;
 };
 
-export default function AppLayout({ hero, stats, about, services }: AppLayoutProps): JSX.Element {
+export default function AppLayout({ hero, stats, about, services, works }: AppLayoutProps): JSX.Element {
     return (
         <html lang="en">
             <body className={`${poppins.className} w-full min-w-80 relative text-sm md:text-base tracking-tight`}>
@@ -26,6 +27,7 @@ export default function AppLayout({ hero, stats, about, services }: AppLayoutPro
                     { about }
                     { services }
                 </div>
+                { works }
             </body>
         </html>
     );
