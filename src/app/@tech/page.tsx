@@ -9,7 +9,7 @@ export default function Tech(): JSX.Element {
             <ul className="mt-12 md:mt-16 grid grid-cols-1 place-items-center sm:grid-cols-2 lg:grid-cols-3 gap-4">
                 <TechCard category="Languages" skills={[ { tool: 'Javascript', skill: 90 }, { tool: 'Typescript', skill: 85 }, { tool: 'PHP', skill: 85 } ]} />
                 <TechCard category="Frameworks & Libraries" skills={[ { tool: 'NextJS', skill: 80 }, { tool: 'Laravel', skill: 75 }, { tool: 'ReactJS', skill: 85 }, { tool: 'Express', skill: 90 } ]} />
-                <TechCard category="Development Tools" skills={[ { tool: 'NodeJS', skill: 90 }, { tool: 'Composer', skill: 90 }, { tool: 'Github', skill: 90 }, { tool: 'AWS', skill: 80 } ]} />
+                <TechCard category="Development Tools" skills={[ { tool: 'NodeJS', skill: 95 }, { tool: 'Composer', skill: 90 }, { tool: 'Github', skill: 90 }, { tool: 'AWS', skill: 80 } ]} />
             </ul>
         </section>
     );
