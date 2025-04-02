@@ -10,7 +10,7 @@ type TechSliderProps = {
 
 export default function TechSlider({ tool, skill }: TechSliderProps): JSX.Element {
     const ref: RefObject<HTMLSpanElement | null> = useRef<HTMLSpanElement>(null);
-    const inView: boolean = useInView(ref, { once: false, margin: '0px 0px -50px 0px' });
+    const inView: boolean = useInView(ref, { once: false, margin: '0px 0px 0px 0px' });
 
     return (
         <span ref={ ref }>

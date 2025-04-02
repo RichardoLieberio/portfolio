@@ -7,7 +7,7 @@ import { ReactTyped } from 'react-typed';
 export default function Typed({ text }: { text: string }): JSX.Element {
     const [ key, setKey ]: [ number, Dispatch<SetStateAction<number>> ] = useState(0);
     const ref: RefObject<HTMLSpanElement | null> = useRef<HTMLSpanElement>(null);
-    const inView: boolean = useInView(ref, { once: false, margin: '0px 0px -50px 0px' });
+    const inView: boolean = useInView(ref, { once: false, margin: '0px 0px 0px 0px' });
 
     useEffect(() => {
         if (inView) setKey((prev) => prev + 1);

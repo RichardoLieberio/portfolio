@@ -15,7 +15,7 @@ export default function Number({ number, duration, ease }: NumberProps): JSX.Ele
     const rounded: MotionValue<number> = useTransform(count, (latest) => Math.round(latest));
 
     const ref: RefObject<HTMLSpanElement | null> = useRef<HTMLSpanElement>(null);
-    const inView: boolean = useInView(ref, { once: false, margin: '0px 0px -50px 0px' });
+    const inView: boolean = useInView(ref, { once: false, margin: '0px 0px 0px 0px' });
 
     useEffect(() => {
         if (inView) {
