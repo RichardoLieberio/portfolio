@@ -27,7 +27,7 @@ export default function ProjectCard({ src, alt, project, title, description, sta
                 <p className="mt-2">{ description }</p>
                 <div className="mt-6 flex flex-wrap items-center gap-x-2 gap-y-4">
                     { stack.map(({ name, logo, small }: { name: string, logo: string, small?: boolean }, index) => (
-                        <div key={`Stack ${index} - ${name}`} className="px-3 py-1 flex items-center gap-2 bg-gray-100 rounded-lg" aria-label={`Technology stack: ${name}`}>
+                        <div key={`Stack ${index} - ${name}`} className={ `${small ? 'px-3.5' : 'px-3'} py-1 flex items-center gap-2 bg-gray-100 rounded-lg` } aria-label={`Technology stack: ${name}`}>
                             <Image src={ logo } alt={ name } width={ small ? 16 : 20 } height={ small ? 16 : 20 } className={ small ? 'w-4 h-4' : 'w-5 h-5' } />
                             <span className="text-xs md:text-sm font-medium text-gray-700">{ name }</span>
                         </div>
