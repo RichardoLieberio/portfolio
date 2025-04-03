@@ -35,13 +35,13 @@ export default function Form(): JSX.Element {
         <motion.div ref={ ref } initial="hidden" animate={ inView ? 'visible' : 'hidden' } variants={ variants }>
             <NextForm action={ onSubmit } autoCapitalize="none" autoComplete="off" spellCheck="false">
                 <div className="flex flex-col gap-4 items-center">
-                    <Input value={ name } setValue={ setName } label="Name" required error={ error.name } props={{ type: 'text', disabled: isSubmitting, placeholder: 'John Doe' }} />
-                    <Input value={ email } setValue={ setEmail } label="Email" required error={ error.email } props={{ type: 'email', disabled: isSubmitting, placeholder: 'johndoe@example.com' }} />
-                    <Input value={ phone } setValue={ setPhone } label="Phone (Optional)" error={ error.phone } props={{ type: 'tel', disabled: isSubmitting, placeholder: '(123) 456-7890' }} />
-                    <TextArea value={ message } setValue={ setMessage } label="Message" required error={ error.message } props={{ rows: '5', disabled: isSubmitting, placeholder: 'Describe your project, ideas, or any questions you have' }} />
+                    <Input value={ name } setValue={ setName } label="Name" required error={ error.name } props={{ type: 'text', disabled: isSubmitting }} />
+                    <Input value={ email } setValue={ setEmail } label="Email" required error={ error.email } props={{ type: 'email', disabled: isSubmitting }} />
+                    <Input value={ phone } setValue={ setPhone } label="Phone (Optional)" error={ error.phone } props={{ type: 'tel', disabled: isSubmitting }} />
+                    <TextArea value={ message } setValue={ setMessage } label="Message" required error={ error.message } props={{ rows: '5', disabled: isSubmitting }} />
                 </div>
                 <div className="text-center">
-                    <input type="submit" value="Submit" className="w-full max-w-96 mt-8 py-2 text-[var(--background)] bg-[var(--primary)] rounded-full" />
+                    <input type="submit" value="Submit" className="w-full max-w-96 mt-8 py-2 text-[var(--background)] bg-[var(--primary)] rounded-full cursor-pointer transition hover:bg-[var(--primary)]/50 focus-visible:bg-[var(--primary)]/50 focus-visible:outline-2 focus-visible:outline-[var(--primary)] focus-visible:outline-offset-2" />
                 </div>
             </NextForm>
         </motion.div>
