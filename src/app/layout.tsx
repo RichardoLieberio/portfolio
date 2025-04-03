@@ -1,6 +1,7 @@
 import { NextFont } from 'next/dist/compiled/@next/font';
 import { Poppins } from 'next/font/google';
 import { ReactNode, JSX } from 'react';
+import { ToastContainer, Bounce } from 'react-toastify';
 import './globals.css';
 
 const poppins: NextFont = Poppins({
@@ -32,6 +33,19 @@ export default function AppLayout({ hero, stats, about, services, works, tech, h
                     { tech }
                     { hire }
                 </div>
+                <ToastContainer
+                    position="top-center"
+                    autoClose={ 3000 }
+                    hideProgressBar={ false }
+                    newestOnTop={ false }
+                    closeOnClick={ false }
+                    rtl={ false }
+                    pauseOnFocusLoss={ false }
+                    draggable
+                    pauseOnHover={ false }
+                    theme="colored"
+                    transition={ Bounce }
+                />
             </body>
         </html>
     );

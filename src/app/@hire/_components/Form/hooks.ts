@@ -1,5 +1,6 @@
 import { useState, Dispatch, SetStateAction } from 'react';
 import { z } from 'zod';
+import { toast } from 'react-toastify';
 import hireForm from '@/zodSchema/hireForm';
 import { useFormReturn } from './types';
 
@@ -25,6 +26,7 @@ export function useForm(): useFormReturn {
                     message: typeof (message) !== 'string' || message ? message : undefined,
                 });
 
+                toast.error('Message sent!');
                 console.log(parsed);
             } catch (error) {
                 if (error instanceof z.ZodError) {
