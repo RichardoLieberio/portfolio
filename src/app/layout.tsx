@@ -2,6 +2,7 @@ import { NextFont } from 'next/dist/compiled/@next/font';
 import { Poppins } from 'next/font/google';
 import { ReactNode, JSX } from 'react';
 import { ToastContainer, Bounce } from 'react-toastify';
+import ScrollToTop from '@/components/ScrollToTop';
 import './globals.css';
 
 const poppins: NextFont = Poppins({
@@ -33,6 +34,7 @@ export default function AppLayout({ hero, stats, about, services, works, tech, h
                     { tech }
                     { hire }
                 </div>
+                <ScrollToTop />
                 <ToastContainer
                     position="top-center"
                     autoClose={ 3000 }
