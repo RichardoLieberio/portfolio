@@ -6,7 +6,7 @@ export default function Works(): JSX.Element {
     return (
         <section className="max-w-7xl mx-auto" aria-labelledby="my-works-title" >
             <Title id="my-works-title" text="My Works" />
-            <ul className="mt-12 md:mt-16 grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-8">
+            <ul className="mt-12 md:mt-16 grid grid-cols-1 md:grid-cols-2 gap-4">
                 <ProjectCard
                     src="/R Tracker.png"
                     alt="R Tracker Home Page"
