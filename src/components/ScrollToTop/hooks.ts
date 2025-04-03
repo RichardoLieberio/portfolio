@@ -1,4 +1,4 @@
-import { useState, useEffect, Dispatch, SetStateAction } from 'react';
+import { useState, useEffect, Dispatch, SetStateAction, KeyboardEvent } from 'react';
 import { useScrollToTopReturn } from './types';
 
 export function useScrollToTop(): useScrollToTopReturn {
@@ -10,9 +10,16 @@ export function useScrollToTop(): useScrollToTopReturn {
         });
     }, []);
 
+    function buttonScroll(e: KeyboardEvent<HTMLSpanElement>): void {
+        if (e.key === 'Enter' || e.key === ' ') {
+            e.preventDefault();
+            scroll();
+        }
+    }
+
     function scroll(): void {
         window.scrollTo(0, 0);
     }
 
-    return { hidden: scrollPosition < 150, scroll };
+    return { hidden: scrollPosition < 150, buttonScroll, scroll };
 }
