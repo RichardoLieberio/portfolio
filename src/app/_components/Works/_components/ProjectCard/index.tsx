@@ -28,7 +28,7 @@ export default function ProjectCard({ src, alt, project, title, description, sta
     return (
         <motion.li ref={ ref } initial="hidden" animate={ inView ? 'visible' : 'hidden' } variants={ variants } tabIndex={ 0 } role="listitem" className="w-full max-w-xl md:max-w-none h-full mx-auto relative bg-white border border-[var(--border)] rounded-xl overflow-hidden transition hover:border-[var(--primary)] focus-visible:outline-2 focus-visible:outline-[var(--primary)]" aria-labelledby={`project-card-${title}`}>
             <div className="relative group">
-                <Image src={ src } alt={ alt } width={ 1920 } height={ 1080 } quality={ 40 } className="w-full transition duration-300 group-hover:brightness-50" />
+                <Image src={ src } alt={ alt } width={ 1920 } height={ 1080 } quality={ 40 } loading="lazy" className="w-full transition duration-300 group-hover:brightness-50" />
                 <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 flex items-center justify-center inset-0 opacity-0 transition duration-300 group-hover:opacity-100">
                     <p className="text-2xl md:text-3xl font-semibold text-center text-[var(--background)]">{ project }</p>
                 </div>
@@ -39,7 +39,7 @@ export default function ProjectCard({ src, alt, project, title, description, sta
                 <div className="mt-6 flex flex-wrap items-center gap-x-2 gap-y-4">
                     { stack.map(({ name, logo, small }: { name: string, logo: string, small?: boolean }, index) => (
                         <div key={`Stack ${index} - ${name}`} className={ `${small ? 'px-3.5' : 'px-3'} py-1 flex items-center gap-2 bg-gray-100 rounded-lg` } aria-label={`Technology stack: ${name}`}>
-                            <Image src={ logo } alt={ name } width={ small ? 16 : 20 } height={ small ? 16 : 20 } className={ small ? 'w-4 h-4' : 'w-5 h-5' } />
+                            <Image src={ logo } alt={ name } width={ small ? 16 : 20 } height={ small ? 16 : 20 } loading="lazy" className={ small ? 'w-4 h-4' : 'w-5 h-5' } />
                             <span className="text-xs md:text-sm font-medium text-gray-700">{ name }</span>
                         </div>
                     )) }
