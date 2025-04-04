@@ -55,6 +55,33 @@ export const metadata: Metadata = {
 export default function AppLayout({ children }: { children: ReactNode }): JSX.Element {
     return (
         <html lang="en" className="scroll-smooth">
+            <head>
+                <script
+                    type="application/ld+json"
+                    dangerouslySetInnerHTML={{
+                        __html: JSON.stringify({
+                            '@context': 'https://schema.org',
+                            '@type': 'Person',
+                            name: 'Richardo Lieberio',
+                            url: process.env.NEXT_PUBLIC_APP_URI,
+                            image: `${process.env.NEXT_PUBLIC_APP_URI}/Icon.png`,
+                            jobTitle: 'Full Stack Web Developer',
+                            worksFor: {
+                                '@type': 'Organization',
+                                name: 'Freelance',
+                            },
+                            description: "I'm Richardo Lieberio, a web developer specializing in Next.js, Laravel, and modern web technologies. Let's build something awesome together!",
+                            sameAs: [
+                                process.env.NEXT_PUBLIC_GITHUB_URI,
+                                process.env.NEXT_PUBLIC_LINKEDIN_URI,
+                                process.env.NEXT_PUBLIC_WHATSAPP_URI,
+                                process.env.NEXT_PUBLIC_INSTAGRAM_URI,
+                                process.env.NEXT_PUBLIC_FACEBOOK_URI,
+                            ],
+                        }),
+                    }}
+                />
+            </head>
             <body className={`${poppins.className} w-full min-w-80 relative text-sm md:text-base`}>
                 { children }
                 <ScrollToTop />
