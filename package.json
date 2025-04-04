@@ -7,13 +7,11 @@
         "build": "next build",
         "start": "next start",
         "lint": "next lint",
-        "format": "prettier --write .",
-        "postbuild": "next-sitemap --config next-sitemap.config.mjs"
+        "format": "prettier --write ."
     },
     "dependencies": {
         "framer-motion": "^12.5.0",
         "next": "15.2.2",
-        "next-sitemap": "^4.2.3",
         "nodemailer": "^6.10.0",
         "react": "^19.0.0",
         "react-dom": "^19.0.0",
