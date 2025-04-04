@@ -13,3 +13,8 @@ export type useFormReturn = {
     isSubmitting: boolean,
     onSubmit: () => void;
 };
+
+export type actionReturn = {
+    status: number;
+    msg: string;
+};

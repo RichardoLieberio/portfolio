@@ -1,8 +1,9 @@
 import { useState, Dispatch, SetStateAction } from 'react';
 import { z } from 'zod';
 import { toast } from 'react-toastify';
+import { sendEmail } from './actions';
 import hireForm from '@/zodSchema/hireForm';
-import { useFormReturn } from './types';
+import { useFormReturn, actionReturn } from './types';
 
 export function useForm(): useFormReturn {
     const [ name, setName ]: [ string, Dispatch<SetStateAction<string>> ] = useState('');
@@ -12,7 +13,7 @@ export function useForm(): useFormReturn {
     const [ error, setError ]: [ { [key: string]: string }, Dispatch<SetStateAction<{ [key: string]: string }>> ] = useState({});
     const [ isSubmitting, setIsSubmitting ]: [ boolean, Dispatch<SetStateAction<boolean>> ] = useState(false);
 
-    function onSubmit(): void {
+    async function onSubmit(): Promise<void> {
         if (!isSubmitting) {
             try {
                 setIsSubmitting(true);
@@ -26,8 +27,18 @@ export function useForm(): useFormReturn {
                     message: typeof (message) !== 'string' || message ? message : undefined,
                 });
 
-                toast.error('Message sent!');
-                console.log(parsed);
+                const { status, msg }: actionReturn = await sendEmail(parsed.name, parsed.email, parsed.phone, parsed.message);
+
+                if (status === 0) {
+                    toast.error(msg);
+                    return;
+                }
+
+                setName('');
+                setEmail('');
+                setPhone('');
+                setMessage('');
+                toast.success(msg);
             } catch (error) {
                 if (error instanceof z.ZodError) {
                     const errors: { [x: string]: string[] | undefined } = error.flatten().fieldErrors;

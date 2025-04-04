@@ -2,7 +2,6 @@
 
 import { useRef, JSX, RefObject } from 'react';
 import { motion, useInView, Variants } from 'framer-motion';
-import NextForm from 'next/form';
 import Input from '../Input';
 import TextArea from '../TextArea';
 import { useForm } from './hooks';
@@ -33,7 +32,7 @@ export default function Form(): JSX.Element {
 
     return (
         <motion.div ref={ ref } initial="hidden" animate={ inView ? 'visible' : 'hidden' } variants={ variants }>
-            <NextForm action={ onSubmit } autoCapitalize="none" autoComplete="off" spellCheck="false">
+            <form autoCapitalize="none" autoComplete="off" spellCheck="false">
                 <div className="flex flex-col gap-4 items-center">
                     <Input value={ name } setValue={ setName } label="Name" required error={ error.name } props={{ type: 'text', disabled: isSubmitting }} />
                     <Input value={ email } setValue={ setEmail } label="Email" required error={ error.email } props={{ type: 'email', disabled: isSubmitting }} />
@@ -41,9 +40,9 @@ export default function Form(): JSX.Element {
                     <TextArea value={ message } setValue={ setMessage } label="Message" required error={ error.message } props={{ rows: '5', disabled: isSubmitting }} />
                 </div>
                 <div className="text-center">
-                    <input type="submit" value="Submit" className="w-full max-w-96 mt-8 py-2 text-[var(--background)] bg-[var(--primary)] rounded-full cursor-pointer transition hover:bg-[var(--primary)]/50 focus-visible:bg-[var(--primary)]/50 focus-visible:outline-2 focus-visible:outline-[var(--primary)] focus-visible:outline-offset-2" />
+                    <button onClick={ onSubmit } disabled={ isSubmitting } className="w-full max-w-96 mt-8 py-2 text-[var(--background)] bg-[var(--primary)] rounded-full transition hover:bg-[var(--primary)]/50 focus-visible:bg-[var(--primary)]/50 focus-visible:outline-2 focus-visible:outline-[var(--primary)] focus-visible:outline-offset-2 disabled:bg-[var(--primary)]/50 disabled:cursor-not-allowed">Submit</button>
                 </div>
-            </NextForm>
+            </form>
         </motion.div>
     );
 }
