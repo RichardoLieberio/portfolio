@@ -36,13 +36,13 @@ export const metadata: Metadata = {
         title: 'Richardo | Web Developer',
         description: "I'm Richardo Lieberio, a web developer specializing in Next.js, Laravel, and modern web technologies. Let's build something awesome together!",
         siteName: 'Richardo Portfolio',
-        images: [ { url: `${process.env.NEXT_PUBLIC_APP_URI}/Icon.png`, alt: 'Richardo Portfolio Thumbnail' } ],
+        images: [ { url: `${process.env.NEXT_PUBLIC_APP_URI}/Graph.png`, alt: 'Richardo Portfolio Thumbnail' } ],
     },
     twitter: {
         card: 'summary_large_image',
         title: 'Richardo | Web Developer',
         description: "I'm Richardo Lieberio, a web developer specializing in Next.js, Laravel, and modern web technologies.",
-        images: [ `${process.env.NEXT_PUBLIC_APP_URI}/Icon.png` ],
+        images: [ `${process.env.NEXT_PUBLIC_APP_URI}/Graph.png` ],
     },
     icons: {
         icon: '/favicon.ico',
