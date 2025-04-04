@@ -32,15 +32,16 @@ export default function Form(): JSX.Element {
 
     return (
         <motion.div ref={ ref } initial="hidden" animate={ inView ? 'visible' : 'hidden' } variants={ variants }>
-            <form autoCapitalize="none" autoComplete="off" spellCheck="false">
-                <div className="flex flex-col gap-4 items-center">
-                    <Input value={ name } setValue={ setName } label="Name" required error={ error.name } props={{ type: 'text', disabled: isSubmitting }} />
-                    <Input value={ email } setValue={ setEmail } label="Email" required error={ error.email } props={{ type: 'email', disabled: isSubmitting }} />
-                    <Input value={ phone } setValue={ setPhone } label="Phone (Optional)" error={ error.phone } props={{ type: 'tel', disabled: isSubmitting }} />
-                    <TextArea value={ message } setValue={ setMessage } label="Message" required error={ error.message } props={{ rows: '5', disabled: isSubmitting }} />
-                </div>
+            <form onSubmit={ onSubmit } autoCapitalize="none" autoComplete="off" spellCheck="false" noValidate>
+                <fieldset className="flex flex-col gap-4 items-center" aria-disabled={ isSubmitting }>
+                    <legend className="sr-only">Hire Me Form</legend>
+                    <Input value={ name } setValue={ setName } label="Name" required error={ error.name } props={{ type: 'text', disabled: isSubmitting, 'aria-required': true, 'aria-describedby': error.name ? 'name-error' : false }} />
+                    <Input value={ email } setValue={ setEmail } label="Email" required error={ error.email } props={{ type: 'email', disabled: isSubmitting, 'aria-required': true, 'aria-describedby': error.email ? 'email-error' : false }} />
+                    <Input value={ phone } setValue={ setPhone } label="Phone (Optional)" error={ error.phone } props={{ type: 'tel', disabled: isSubmitting, 'aria-required': true, 'aria-describedby': error.phone ? 'phone-error' : false }} />
+                    <TextArea value={ message } setValue={ setMessage } label="Message" required error={ error.message } props={{ rows: '5', disabled: isSubmitting, 'aria-required': true, 'aria-describedby': error.message ? 'message-error' : false }} />
+                </fieldset>
                 <div className="text-center">
-                    <button onClick={ onSubmit } disabled={ isSubmitting } className="w-full max-w-96 mt-8 py-2 text-[var(--background)] bg-[var(--primary)] rounded-full transition hover:bg-[var(--primary)]/50 focus-visible:bg-[var(--primary)]/50 focus-visible:outline-2 focus-visible:outline-[var(--primary)] focus-visible:outline-offset-2 disabled:bg-[var(--primary)]/50 disabled:cursor-not-allowed">Submit</button>
+                    <input type="submit" value="Submit" disabled={ isSubmitting } className="w-full max-w-96 mt-8 py-2 text-[var(--background)] bg-[var(--primary)] rounded-full transition hover:bg-[var(--primary)]/50 focus-visible:bg-[var(--primary)]/50 focus-visible:outline-2 focus-visible:outline-[var(--primary)] focus-visible:outline-offset-2 disabled:bg-[var(--primary)]/50 disabled:cursor-not-allowed" aria-disabled={ isSubmitting } />
                 </div>
             </form>
         </motion.div>

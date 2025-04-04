@@ -1,4 +1,4 @@
-import { useState, Dispatch, SetStateAction } from 'react';
+import { useState, Dispatch, SetStateAction, FormEvent } from 'react';
 import { z } from 'zod';
 import { toast } from 'react-toastify';
 import { sendEmail } from './actions';
@@ -13,41 +13,42 @@ export function useForm(): useFormReturn {
     const [ error, setError ]: [ { [key: string]: string }, Dispatch<SetStateAction<{ [key: string]: string }>> ] = useState({});
     const [ isSubmitting, setIsSubmitting ]: [ boolean, Dispatch<SetStateAction<boolean>> ] = useState(false);
 
-    async function onSubmit(): Promise<void> {
-        if (!isSubmitting) {
-            try {
-                setIsSubmitting(true);
-                setError({});
+    async function onSubmit(e: FormEvent<HTMLFormElement>): Promise<void> {
+        e.preventDefault();
+        if (isSubmitting) return;
 
-                type HireForm = z.infer<typeof hireForm>;
-                const parsed: HireForm = hireForm.parse({
-                    name: typeof (name) !== 'string' || name ? name : undefined,
-                    email: typeof (email) !== 'string' || email ? email : undefined,
-                    phone: typeof (phone) !== 'string' || phone ? phone : undefined,
-                    message: typeof (message) !== 'string' || message ? message : undefined,
-                });
+        try {
+            setIsSubmitting(true);
+            setError({});
 
-                const { status, msg }: actionReturn = await sendEmail(parsed.name, parsed.email, parsed.phone, parsed.message);
+            type HireForm = z.infer<typeof hireForm>;
+            const parsed: HireForm = hireForm.parse({
+                name: typeof (name) !== 'string' || name ? name : undefined,
+                email: typeof (email) !== 'string' || email ? email : undefined,
+                phone: typeof (phone) !== 'string' || phone ? phone : undefined,
+                message: typeof (message) !== 'string' || message ? message : undefined,
+            });
 
-                if (status === 0) {
-                    toast.error(msg);
-                    return;
-                }
+            const { status, msg }: actionReturn = await sendEmail(parsed.name, parsed.email, parsed.phone, parsed.message);
 
-                setName('');
-                setEmail('');
-                setPhone('');
-                setMessage('');
-                toast.success(msg);
-            } catch (error) {
-                if (error instanceof z.ZodError) {
-                    const errors: { [x: string]: string[] | undefined } = error.flatten().fieldErrors;
-                    const errorMessages: { [key: string]: string } = Object.keys(errors).reduce((messages, key) => ({ ...messages, [key]: errors[key] }), {});
-                    setError(errorMessages);
-                }
-            } finally {
-                setIsSubmitting(false);
+            if (status === 0) {
+                toast.error(msg);
+                return;
             }
+
+            setName('');
+            setEmail('');
+            setPhone('');
+            setMessage('');
+            toast.success(msg);
+        } catch (error) {
+            if (error instanceof z.ZodError) {
+                const errors: { [x: string]: string[] | undefined } = error.flatten().fieldErrors;
+                const errorMessages: { [key: string]: string } = Object.keys(errors).reduce((messages, key) => ({ ...messages, [key]: errors[key] }), {});
+                setError(errorMessages);
+            }
+        } finally {
+            setIsSubmitting(false);
         }
     }
 

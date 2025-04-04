@@ -19,7 +19,7 @@ export default function TextArea({ value, setValue, label, required, error, prop
             </div>
             <div className="flex-1 flex flex-col">
                 <textarea id={ label } value={ value } onChange={ (e) => setValue(e.target.value) } { ...props } className={ `${error ? 'border-[var(--error)]' : 'border-[var(--border)]'} w-full px-4 py-2 bg-white border rounded-md transition focus-visible:outline-[var(--primary)] disabled:bg-[var(--accent)] disabled:cursor-not-allowed` }></textarea>
-                { error && <small className="text-xs md:text-sm text-[var(--error)]">{ error }</small> }
+                { error && <small id={ `${label.split(' ')[0].toLowerCase()}-error` } role="alert" className="text-xs md:text-sm text-[var(--error)]">{ error }</small> }
             </div>
         </div>
     );

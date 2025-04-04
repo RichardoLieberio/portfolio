@@ -1,4 +1,4 @@
-import { Dispatch, SetStateAction } from 'react';
+import { Dispatch, SetStateAction, FormEvent } from 'react';
 
 export type useFormReturn = {
     name: string,
@@ -11,7 +11,7 @@ export type useFormReturn = {
     setMessage: Dispatch<SetStateAction<string>>,
     error: { [key: string]: string },
     isSubmitting: boolean,
-    onSubmit: () => void;
+    onSubmit: (e: FormEvent<HTMLFormElement>) => void;
 };
 
 export type actionReturn = {
