@@ -10,27 +10,27 @@ export default function Social(): JSX.Element {
             <p className="mt-4" aria-live="polite">Whether it&apos;s a new project or an improvement on an existing one, I&apos;m here to bring your ideas to life. Let&apos;s build something great together!</p>
             <ul className="mt-8 flex justify-center gap-6 md:gap-8" role="list">
                 <li role="listitem">
-                    <Link href="https://github.com/RichardoLieberio" title="My Github" target="_blank" rel="noopener noreferrer" aria-label="Github profile">
+                    <Link href={ process.env.NEXT_PUBLIC_GITHUB_URI! } title="My Github" target="_blank" rel="noopener noreferrer" aria-label="Github profile">
                         <FaGithub className="text-4xl md:text-5xl cursor-pointer transition hover:text-[var(--primary)] hover:scale-110" />
                     </Link>
                 </li>
                 <li role="listitem">
-                    <Link href="https://www.linkedin.com/in/richardo-lieberio-04a262293?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" title="My LinkedIn" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn profile">
+                    <Link href={ process.env.NEXT_PUBLIC_LINKEDIN_URI! } title="My LinkedIn" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn profile">
                         <FaLinkedin className="text-4xl md:text-5xl cursor-pointer transition hover:text-[var(--primary)] hover:scale-110" />
                     </Link>
                 </li>
                 <li role="listitem">
-                    <Link href="https://wa.me/6281918981214" title="My WhatsApp" target="_blank" rel="noopener noreferrer" aria-label="Whatsapp contact">
+                    <Link href={ process.env.NEXT_PUBLIC_WHATSAPP_URI! } title="My WhatsApp" target="_blank" rel="noopener noreferrer" aria-label="Whatsapp contact">
                         <FaWhatsapp className="text-4xl md:text-5xl cursor-pointer transition hover:text-[var(--primary)] hover:scale-110" />
                     </Link>
                 </li>
                 <li role="listitem">
-                    <Link href="https://www.instagram.com/richardo.lie?igsh=eTVzbnV1eHhhemh1" title="My Instagram" target="_blank" rel="noopener noreferrer" aria-label="Instagram profile">
+                    <Link href={ process.env.NEXT_PUBLIC_INSTAGRAM_URI! } title="My Instagram" target="_blank" rel="noopener noreferrer" aria-label="Instagram profile">
                         <FaInstagram className="text-4xl md:text-5xl cursor-pointer transition hover:text-[var(--primary)] hover:scale-110" />
                     </Link>
                 </li>
                 <li role="listitem">
-                    <Link href="https://www.facebook.com/share/1BfRJ5cmQZ/" title="My Facebook" target="_blank" rel="noopener noreferrer" aria-label="Facebook profile">
+                    <Link href={ process.env.NEXT_PUBLIC_FACEBOOK_URI! } title="My Facebook" target="_blank" rel="noopener noreferrer" aria-label="Facebook profile">
                         <FaFacebook className="text-4xl md:text-5xl cursor-pointer transition hover:text-[var(--primary)] hover:scale-110" />
                     </Link>
                 </li>
