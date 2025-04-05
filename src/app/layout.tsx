@@ -1,6 +1,8 @@
 import type { Metadata } from 'next';
+import { GoogleAnalytics } from '@next/third-parties/google';
 import { NextFont } from 'next/dist/compiled/@next/font';
 import { Poppins } from 'next/font/google';
+import { Person, WithContext } from 'schema-dts';
 import { ReactNode, JSX } from 'react';
 import { ToastContainer, Bounce } from 'react-toastify';
 import ScrollToTop from '@/components/ScrollToTop';
@@ -53,34 +55,32 @@ export const metadata: Metadata = {
 };
 
 export default function AppLayout({ children }: { children: ReactNode }): JSX.Element {
+    const jsonLd: WithContext<Person> = {
+        '@context': 'https://schema.org',
+        '@type': 'Person',
+        name: 'Richardo Lieberio',
+        url: process.env.NEXT_PUBLIC_APP_URI,
+        image: `${process.env.NEXT_PUBLIC_APP_URI}/Portrait.jpeg`,
+        jobTitle: 'Full Stack Web Developer',
+        worksFor: {
+            '@type': 'Organization',
+            name: 'Freelance',
+        },
+        description: "I'm Richardo Lieberio, a web developer specializing in Next.js, Laravel, and modern web technologies. Let's build something awesome together!",
+        sameAs: [
+            process.env.NEXT_PUBLIC_GITHUB_URI!,
+            process.env.NEXT_PUBLIC_LINKEDIN_URI!,
+            process.env.NEXT_PUBLIC_WHATSAPP_URI!,
+            process.env.NEXT_PUBLIC_INSTAGRAM_URI!,
+            process.env.NEXT_PUBLIC_FACEBOOK_URI!,
+        ],
+    };
+
     return (
         <html lang="en" className="scroll-smooth">
+            <GoogleAnalytics gaId="G-V5SB3XV7CF" />
             <head>
-                <script
-                    type="application/ld+json"
-                    dangerouslySetInnerHTML={{
-                        __html: JSON.stringify({
-                            '@context': 'https://schema.org',
-                            '@type': 'Person',
-                            name: 'Richardo Lieberio',
-                            url: process.env.NEXT_PUBLIC_APP_URI,
-                            image: `${process.env.NEXT_PUBLIC_APP_URI}/Portrait.jpeg`,
-                            jobTitle: 'Full Stack Web Developer',
-                            worksFor: {
-                                '@type': 'Organization',
-                                name: 'Freelance',
-                            },
-                            description: "I'm Richardo Lieberio, a web developer specializing in Next.js, Laravel, and modern web technologies. Let's build something awesome together!",
-                            sameAs: [
-                                process.env.NEXT_PUBLIC_GITHUB_URI,
-                                process.env.NEXT_PUBLIC_LINKEDIN_URI,
-                                process.env.NEXT_PUBLIC_WHATSAPP_URI,
-                                process.env.NEXT_PUBLIC_INSTAGRAM_URI,
-                                process.env.NEXT_PUBLIC_FACEBOOK_URI,
-                            ],
-                        }),
-                    }}
-                />
+                <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
             </head>
             <body className={`${poppins.className} w-full min-w-80 relative text-sm md:text-base`}>
                 { children }
