@@ -14,7 +14,7 @@ export default function Typed({ text }: { text: string }): JSX.Element {
     }, [ inView ]);
 
     return (
-        <span ref={ ref }>
+        <span ref={ ref } aria-hidden>
             <ReactTyped key={ key } strings={[ text ]} typeSpeed={ 60 } startWhenVisible className="mt-1 text-4xl md:text-5xl text-[var(--primary)] font-semibold" />
         </span>
     );

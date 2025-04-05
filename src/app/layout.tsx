@@ -13,7 +13,7 @@ const poppins: NextFont = Poppins({
 });
 
 export const metadata: Metadata = {
-    title: 'Richardo | Web Developer',
+    title: 'Richardo Lieberio - Fullstack Web Developer',
     description: "I'm Richardo Lieberio, a web developer specializing in Next.js, Laravel, and modern web technologies. Let's build something awesome together!",
     keywords: [ 'Richardo Lieberio', 'Richardo Lieberio Web Developer', 'Richardo Lieberio Developer', 'Richardo Lieberio Full Stack Developer', 'Web Developer in Medan', 'Full Stack Developer in Medan', 'Freelance Web Developer Medan', 'Medan Web Developer', 'Medan Website Developer', 'Richardo Lieberio – Web Developer in Medan', 'Richardo Lieberio – Full Stack Developer in Medan', 'Richardo Lieberio – Freelance Web Developer Medan', 'Web Developer Medan – Richardo Lieberio', 'Medan Programmer', 'Website Developer in Medan' ],
     authors: [ { name: 'Richardo Lieberio', url: process.env.NEXT_PUBLIC_APP_URI } ],
@@ -33,21 +33,21 @@ export const metadata: Metadata = {
     openGraph: {
         type: 'website',
         url: process.env.NEXT_PUBLIC_APP_URI,
-        title: 'Richardo | Web Developer',
+        title: 'Richardo Lieberio - Fullstack Web Developer',
         description: "I'm Richardo Lieberio, a web developer specializing in Next.js, Laravel, and modern web technologies. Let's build something awesome together!",
         siteName: 'Richardo Portfolio',
         images: [ { url: `${process.env.NEXT_PUBLIC_APP_URI}/Graph.png`, alt: 'Richardo Portfolio Thumbnail' } ],
     },
     twitter: {
         card: 'summary_large_image',
-        title: 'Richardo | Web Developer',
+        title: 'Richardo Lieberio - Fullstack Web Developer',
         description: "I'm Richardo Lieberio, a web developer specializing in Next.js, Laravel, and modern web technologies.",
         images: [ `${process.env.NEXT_PUBLIC_APP_URI}/Graph.png` ],
     },
     icons: {
         icon: '/favicon.ico',
         shortcut: '/favicon.ico',
-        apple: '/Icon.png',
+        apple: '/favicon.ico',
     },
     category: 'technology',
 };
@@ -64,7 +64,7 @@ export default function AppLayout({ children }: { children: ReactNode }): JSX.El
                             '@type': 'Person',
                             name: 'Richardo Lieberio',
                             url: process.env.NEXT_PUBLIC_APP_URI,
-                            image: `${process.env.NEXT_PUBLIC_APP_URI}/Icon.png`,
+                            image: `${process.env.NEXT_PUBLIC_APP_URI}/Portrait.jpeg`,
                             jobTitle: 'Full Stack Web Developer',
                             worksFor: {
                                 '@type': 'Organization',

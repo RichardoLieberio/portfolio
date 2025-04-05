@@ -10,7 +10,9 @@ export default function Hero(): JSX.Element {
                 <div className="max-w-7xl mx-auto py-24 flex flex-col lg:flex-row items-center gap-16">
                     <div className="flex-2/3 text-center lg:text-start">
                         <p className="text-[var(--primary)] font-semibold">Creating seamless web experience</p>
-                        <h1 className="mt-4 text-4xl md:text-5xl font-semibold" id="hero-title">Richardo Lieberio</h1>
+                        <h1 className="mt-4 text-4xl md:text-5xl font-semibold" id="hero-title">
+                            Richardo Lieberio<span className="sr-only"> - Fullstack Web Developer</span>
+                        </h1>
                         <Typed text="Full Stack Developer" />
                         <p className="mt-4">Empowering users with high quality, responsive, and performance driven web experiences, built to meet real world needs</p>
                         <div className="mt-10">
