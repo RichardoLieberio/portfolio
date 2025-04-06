@@ -37,8 +37,8 @@ export const metadata: Metadata = {
         url: process.env.NEXT_PUBLIC_APP_URI,
         title: 'Richardo Lieberio - Fullstack Web Developer',
         description: "I'm Richardo Lieberio, a web developer specializing in Next.js, Laravel, and modern web technologies. Let's build something awesome together!",
-        siteName: 'Richardo Portfolio',
-        images: [ { url: `${process.env.NEXT_PUBLIC_APP_URI}/Graph.png`, alt: 'Richardo Portfolio Thumbnail' } ],
+        siteName: 'Richardo Lieberio',
+        images: [ { url: `${process.env.NEXT_PUBLIC_APP_URI}/Graph.png`, alt: 'Open Graph Thumbnail' } ],
     },
     twitter: {
         card: 'summary_large_image',
@@ -51,7 +51,7 @@ export const metadata: Metadata = {
         shortcut: '/favicon.ico',
         apple: '/favicon.ico',
     },
-    category: 'technology',
+    category: 'fullstack web developer',
 };
 
 export default function AppLayout({ children }: { children: ReactNode }): JSX.Element {
@@ -59,6 +59,7 @@ export default function AppLayout({ children }: { children: ReactNode }): JSX.El
         '@context': 'https://schema.org',
         '@type': 'Person',
         name: 'Richardo Lieberio',
+        alternateName: 'Richardo Lieberio - Fullstack Web Developer',
         url: process.env.NEXT_PUBLIC_APP_URI,
         image: `${process.env.NEXT_PUBLIC_APP_URI}/Portrait.jpeg`,
         jobTitle: 'Full Stack Web Developer',
