@@ -7,6 +7,7 @@ export default function Sitemap(): MetadataRoute.Sitemap {
             lastModified: new Date(),
             changeFrequency: 'daily',
             priority: 1,
+            images: [ '/Portrait.jpeg' ],
         },
     ];
 }
