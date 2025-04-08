@@ -7,7 +7,7 @@ export default function Sitemap(): MetadataRoute.Sitemap {
             lastModified: new Date(),
             changeFrequency: 'daily',
             priority: 1,
-            images: [ '/Portrait.jpeg' ],
+            images: [ `${process.env.NEXT_PUBLIC_APP_URI}/Portrait.jpeg` ],
         },
     ];
 }
