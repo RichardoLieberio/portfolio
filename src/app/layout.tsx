@@ -61,7 +61,7 @@ export default function AppLayout({ children }: { children: ReactNode }): JSX.El
         name: 'Richardo Lieberio',
         alternateName: 'Richardo Lieberio - Fullstack Web Developer',
         url: process.env.NEXT_PUBLIC_APP_URI,
-        image: `${process.env.NEXT_PUBLIC_APP_URI}/Portrait.jpeg`,
+        image: `${process.env.NEXT_PUBLIC_APP_URI}/Picture.jpeg`,
         jobTitle: 'Full Stack Web Developer',
         worksFor: {
             '@type': 'Organization',

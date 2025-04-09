@@ -20,7 +20,7 @@ export default function Hero(): JSX.Element {
                         </div>
                     </div>
                     <div className="max-w-72 md:max-w-96">
-                        <Image src="/Portrait.jpeg" alt="Portrait of me" width={ 1280 } height={ 1280 } loading="lazy" className="rounded-4xl" />
+                        <Image src="/Picture.jpeg" alt="Richardo's Picture" width={ 1280 } height={ 1280 } loading="lazy" className="rounded-4xl" />
                     </div>
                 </div>
             </div>
