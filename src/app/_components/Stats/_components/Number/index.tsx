@@ -10,6 +10,7 @@ type NumberProps = {
 };
 
 export default function Number({ number, duration, ease }: NumberProps): JSX.Element {
+    const [ shown, setShown ]: [ number, Dispatch<SetStateAction<number>> ] = useState(0);
     const [ displayNumber, setDisplayNumber ]: [ number, Dispatch<SetStateAction<number>> ] = useState(0);
     const count: MotionValue<number> = useMotionValue(0);
     const rounded: MotionValue<number> = useTransform(count, (latest) => Math.round(latest));
@@ -18,9 +19,11 @@ export default function Number({ number, duration, ease }: NumberProps): JSX.Ele
     const inView: boolean = useInView(ref, { once: false, margin: '0px 0px 0px 0px' });
 
     useEffect(() => {
-        if (inView) {
-            count.set(0);
+        if (inView) setShown(1);
+    }, [ inView ]);
 
+    useEffect(() => {
+        if (shown) {
             const controls: AnimationPlaybackControls = animate(count, number, { duration, ease, type: 'tween' });
             const unsubscribe: VoidFunction = rounded.on('change', (val) => setDisplayNumber(val));
 
@@ -29,7 +32,7 @@ export default function Number({ number, duration, ease }: NumberProps): JSX.Ele
                 unsubscribe();
             };
         }
-    }, [ number, duration, ease, count, rounded, inView ]);
+    }, [ number, duration, ease, count, rounded, shown ]);
 
     return (
         <motion.span ref={ ref } className="text-4xl md:text-5xl font-semibold" aria-live="polite" aria-label={ `Count: ${displayNumber}` }>

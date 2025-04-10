@@ -1,6 +1,6 @@
 'use client';
 
-import { useRef, JSX, RefObject } from 'react';
+import { useState, useRef, useEffect, JSX, Dispatch, SetStateAction, RefObject } from 'react';
 import { motion, useInView, Variants } from 'framer-motion';
 import Input from '../Input';
 import TextArea from '../TextArea';
@@ -8,6 +8,7 @@ import { useForm } from './hooks';
 import { useFormReturn } from './types';
 
 export default function Form(): JSX.Element {
+    const [ shown, setShown ]: [ number, Dispatch<SetStateAction<number>> ] = useState(0);
     const ref: RefObject<HTMLDivElement | null> = useRef<HTMLDivElement>(null);
     const inView: boolean = useInView(ref, { once: false, margin: '0px 0px 0px 0px' });
 
@@ -25,13 +26,17 @@ export default function Form(): JSX.Element {
         onSubmit,
     }: useFormReturn = useForm();
 
+    useEffect(() => {
+        if (inView) setShown(1);
+    }, [ inView ]);
+
     const variants: Variants = {
         hidden: { y: 40, opacity: 0, scale: 0.95 },
         visible: { y: 0, opacity: 1, scale: 1, transition: { duration: 0.3, ease: 'easeOut' } },
     };
 
     return (
-        <motion.div ref={ ref } initial="hidden" animate={ inView ? 'visible' : 'hidden' } variants={ variants }>
+        <motion.div ref={ ref } initial="hidden" animate={ shown ? 'visible' : 'hidden' } variants={ variants }>
             <form onSubmit={ onSubmit } autoCapitalize="none" autoComplete="off" spellCheck="false" noValidate>
                 <fieldset className="flex flex-col gap-4 items-center" aria-disabled={ isSubmitting }>
                     <legend className="sr-only">Hire Me Form</legend>

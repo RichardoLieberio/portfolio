@@ -1,6 +1,6 @@
 'use client';
 
-import { useRef, JSX, RefObject } from 'react';
+import { useState, useRef, useEffect, JSX, Dispatch, SetStateAction, RefObject } from 'react';
 import { motion, useInView, Variants } from 'framer-motion';
 import TechSlider from '../TechSlider';
 
@@ -10,8 +10,13 @@ type TechCardProps = {
 };
 
 export default function TechCard({ category, skills }: TechCardProps): JSX.Element {
+    const [ shown, setShown ]: [ number, Dispatch<SetStateAction<number>> ] = useState(0);
     const ref: RefObject<HTMLLIElement | null> = useRef<HTMLLIElement>(null);
     const inView: boolean = useInView(ref, { once: false, margin: '0px 0px 0px 0px' });
+
+    useEffect(() => {
+        if (inView) setShown(1);
+    }, [ inView ]);
 
     const variants: Variants = {
         hidden: { y: 40, opacity: 0, scale: 0.95 },
@@ -19,7 +24,7 @@ export default function TechCard({ category, skills }: TechCardProps): JSX.Eleme
     };
 
     return (
-        <motion.li ref={ ref } initial="hidden" animate={ inView ? 'visible' : 'hidden' } variants={ variants } tabIndex={ 0 } role="listitem" className="w-full h-full max-w-96 sm:max-w-none p-8 bg-white border border-[var(--border)] rounded-xl transition hover:border-[var(--primary)] focus-visible:outline-2 focus-visible:outline-[var(--primary)]">
+        <motion.li ref={ ref } initial="hidden" animate={ shown ? 'visible' : 'hidden' } variants={ variants } tabIndex={ 0 } role="listitem" className="w-full h-full max-w-96 sm:max-w-none p-8 bg-white border border-[var(--border)] rounded-xl transition hover:border-[var(--primary)] focus-visible:outline-2 focus-visible:outline-[var(--primary)]">
             <article>
                 <h3 className="text-center font-semibold">{ category }</h3>
                 <ul className="mt-6 space-y-4" role="list">
